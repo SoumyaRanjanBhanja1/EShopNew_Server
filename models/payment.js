@@ -1,28 +1,15 @@
-// src/models/Payment.js
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const paymentSchema = new mongoose.Schema({
-  orderId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Order",
-    required: true,
+  orderId: String,
+  paymentId: String,
+  signature: String,
+  amount: Number,
+  verified: Boolean,
+  timestamp: {
+    type: Date,
+    default: Date.now,
   },
-  paymentId: {
-    type: String,
-    required: true,
-  },
-  signature: {
-    type: String,
-    required: true,
-  },
-  amount: {
-    type: Number,
-    required: true,
-  },
-  status: {
-    type: String,
-    default: "success",
-  },
-}, { timestamps: true });
+});
 
-export default mongoose.model("Payment", paymentSchema);
+export default mongoose.model('Payment', paymentSchema);
