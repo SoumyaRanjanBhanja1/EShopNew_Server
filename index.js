@@ -10,6 +10,9 @@ import userRoutes from "./routes/user.js";
 import adminRoutes from "./routes/admin.js";
 import paymentRoutes from './routes/payment.js';
 import orderRoutes from './routes/order.js';
+import order from "./routes/orderRoutes.js";
+
+
 
 
 
@@ -30,6 +33,9 @@ app.use("/api/user", userRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/payment", paymentRoutes);
 app.use("/api/order", orderRoutes);
+app.use("/api/orders", order);
+
+
 
 
 mongoose
