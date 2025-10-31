@@ -22,7 +22,7 @@ const app = express();
 
 app.use(cors({
   origin: "http://localhost:5173",
-  https://eshopnew-server-4.onrender.com,
+  "https://eshopnew-server-4.onrender.com",
   credentials: true,
 }));
 app.use(express.json());
