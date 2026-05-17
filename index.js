@@ -20,7 +20,8 @@ const app = express();
 // ✅ Allowed origins for both local + production
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://e-shop-new-9zbz.vercel.app"
+  "https://e-shop-new-9zbz.vercel.app",
+  "https://agent-6a09fe009a26ec423a9ed5dc--eshopnew1.netlify.app" // ✅ Netlify URL added here
 ];
 
 app.use(cors({
