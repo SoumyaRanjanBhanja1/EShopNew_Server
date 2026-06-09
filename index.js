@@ -21,7 +21,9 @@ const app = express();
 const allowedOrigins = [
   "http://localhost:5173",
   "https://e-shop-new-9zbz.vercel.app/",
-  "https://eshopnew1.netlify.app/" // ✅ Netlify URL added here
+  "https://eshopnew1.netlify.app/", 
+  "https://e-shop-new-jw63.vercel.app/",
+  "https://e-shop-new-py77.vercel.app/"
 ];
 
 app.use(cors({
