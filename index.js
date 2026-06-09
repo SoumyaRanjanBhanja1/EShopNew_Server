@@ -20,14 +20,14 @@ const app = express();
 // ✅ Allowed origins for both local + production
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://e-shop-new-9zbz.vercel.app",
-  "https://eshopnew1.netlify.app",
-  "https://e-shop-new-jw63.vercel.app",
-  "https://e-shop-new-py77.vercel.app"
+  "https://eshopnew1.netlify.app/",
+  "https://e-shop-new-9zbz.vercel.app"
 ];
 app.use(cors({
   origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin) || origin.endsWith('.vercel.app')) {
+    // Allows requests with no origin (like Postman/mobile apps) 
+    // OR origins strictly listed in your allowedOrigins array.
+    if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
       console.log("CORS blocked:", origin); // debug pain
