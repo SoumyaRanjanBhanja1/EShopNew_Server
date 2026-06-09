@@ -20,21 +20,23 @@ const app = express();
 // ✅ Allowed origins for both local + production
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://e-shop-new-9zbz.vercel.app/",
-  "https://eshopnew1.netlify.app/", 
-  "https://e-shop-new-jw63.vercel.app/",
-  "https://e-shop-new-py77.vercel.app/"
+  "https://e-shop-new-9zbz.vercel.app",
+  "https://eshopnew1.netlify.app",
+  "https://e-shop-new-jw63.vercel.app",
+  "https://e-shop-new-py77.vercel.app"
 ];
-
 app.use(cors({
   origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
+    if (!origin || allowedOrigins.includes(origin) || origin.endsWith('.vercel.app')) {
       callback(null, true);
     } else {
+      console.log("CORS blocked:", origin); // debug pain
       callback(new Error("Not allowed by CORS"));
     }
   },
   credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 // Middleware
